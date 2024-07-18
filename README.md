@@ -23,7 +23,7 @@ Blackout can be configured via the EXILED config file at `EXILED/Configs/{port}-
 ```yaml
 blackout:
   # Whether or not this plugin is enabled on the server.
-  s_enabled: true
+  is_enabled: true
   # Whether or not to show logs used for debugging.
   debug: false
   # Probability of the blackout occuring. (1 out of X)
