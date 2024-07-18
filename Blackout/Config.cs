@@ -11,7 +11,7 @@ namespace Blackout
         [Description("Whether or not to show logs used for debugging.")]
         public bool Debug { get; set; } = false;
 
-        [Description("Probability of a blackout happening. (1 out of X)")]
+        [Description("Probability of the blackout occuring. (1 out of X)")]
         public int Rarity { get; set; } = 3;
     }
 }
