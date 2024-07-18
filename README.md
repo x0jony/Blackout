@@ -5,6 +5,8 @@ Blackout is an EXILED plugin for SCP: Secret Laboratory which disables all facil
 
 ## Features
 - Starts at the start of the round based on a probability.
+- Force the blackout to occur next round with a command:
+  - .blackout/.bl force/f (Remote Admin)
 - If the blackout occurs:
   - Disables all facility lights.
   - Provides all players with a flashlight if they don't have one.

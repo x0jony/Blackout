@@ -15,10 +15,11 @@ namespace Blackout
 
         public void OnRoundStart()
         {
-            if (!plugin.IsEnabled || RNG.Next(1, config.Rarity) != 1)
+            if (!plugin.IsEnabled || !plugin.ForceNextRound && RNG.Next(1, config.Rarity) != 1)
                 return;
-
-            plugin.IsRunning = true;
+            
+            plugin.IsOccuring = true;
+            plugin.ForceNextRound = false;
             Timing.CallDelayed(.5f, () => plugin.Methods.Give());
             
             Map.TurnOffAllLights(float.MaxValue);
@@ -27,7 +28,7 @@ namespace Blackout
 
         public void OnChangingRole(ChangingRoleEventArgs ev)
         {
-            if (!plugin.IsRunning)
+            if (!plugin.IsOccuring)
                 return;
             
             Timing.CallDelayed(1.0f, () => ev.Player.AddItem(ItemType.Flashlight));
@@ -35,10 +36,10 @@ namespace Blackout
 
         public void OnRoundEnd(RoundEndedEventArgs ev)
         {
-            if (!plugin.IsRunning)
+            if (!plugin.IsOccuring)
                 return;
 
-            plugin.IsRunning = false;
+            plugin.IsOccuring = false;
         }
     }
 }
