@@ -11,6 +11,7 @@ namespace Blackout
         private readonly Plugin plugin;
         private Random RNG = new Random();
         private Config config = Plugin.Singleton.Config;
+        private string cassieMessage = "<size=0> PITCH_.2 .G4 .G4 PITCH_.9 ATTENTION ALL PITCH_.6 PERSONNEL .G2 PITCH_.8 JAM_027_4 . PITCH_.15 .G4 .G4 PITCH_9999</size><color=#d64542>Attention, <color=#f5e042>all personnel...<split><size=0> PITCH_.9 GENERATORS PITCH_.7 IN THE PITCH_.85 FACILITY HAVE BEEN PITCH_.8 DAMAGED PITCH_.2 .G4 .G4 PITCH_9999</size><color=#d67d42>Generators in <color=#f5e042>the facility <color=#d67d42>have been <color=#d64542>damaged.<split><size=0> PITCH_.8 THE FACILITY PITCH_.9 IS GOING THROUGH PITCH_.85 A BLACK OUT PITCH_.15 .G4 .G4 PITCH_9999</size><color=#d64542><color=#f5e042>The facility <color=#d67d42>is going through a <color=#000000>blackout.";
         public EventHandlers(Plugin plugin) => this.plugin = plugin;
 
         public void OnRoundStart()
@@ -23,7 +24,7 @@ namespace Blackout
             Timing.CallDelayed(.5f, () => plugin.Methods.Give());
             
             Map.TurnOffAllLights(float.MaxValue);
-            Map.Broadcast(10, "<color=red>The facility is experiencing a blackout, all lights are off.</color>");
+            Cassie.Message(cassieMessage, false, false, true);
         }
 
         public void OnChangingRole(ChangingRoleEventArgs ev)

@@ -42,7 +42,7 @@
           <HintPath>C:\Windows\System32\CommandSystem.Core.dll</HintPath>
         </Reference>
         <Reference Include="Exiled.API, Version=8.9.6.0, Culture=neutral, PublicKeyToken=null">
-          <HintPath>C:\Windows\System32\dependencies\Exiled.API.dll</HintPath>
+          <HintPath>C:\Windows\System32\Exiled.API.dll</HintPath>
         </Reference>
         <Reference Include="Exiled.Events, Version=8.9.6.0, Culture=neutral, PublicKeyToken=null">
           <HintPath>C:\Windows\System32\Exiled.Events.dll</HintPath>
@@ -68,6 +68,8 @@
         </Reference>
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="Commands\Blackout.cs" />
+        <Compile Include="Commands\Force.cs" />
         <Compile Include="Config.cs" />
         <Compile Include="EventHandlers.cs" />
         <Compile Include="Methods.cs" />
