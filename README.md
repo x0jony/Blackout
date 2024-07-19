@@ -10,6 +10,7 @@ Blackout is an EXILED plugin for SCP: Secret Laboratory which disables all facil
 - If the blackout occurs:
   - Disables all facility lights.
   - Provides all players with a flashlight if they don't have one.
+  - Announces the blackout with a cool C.A.S.S.I.E message.
 
 ## Installation
 1. Download the [latest release](https://github.com/x0jony/Blackout/releases/latest) of the plugin from the GitHub repository.
