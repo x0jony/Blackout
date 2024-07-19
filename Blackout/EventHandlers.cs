@@ -14,7 +14,7 @@ namespace Blackout
         private string cassieMessage = "<size=0> PITCH_.2 .G4 .G4 PITCH_.9 ATTENTION ALL PITCH_.6 PERSONNEL .G2 PITCH_.8 JAM_027_4 . PITCH_.15 .G4 .G4 PITCH_9999</size><color=#d64542>Attention, <color=#f5e042>all personnel...<split><size=0> PITCH_.9 GENERATORS PITCH_.7 IN THE PITCH_.85 FACILITY HAVE BEEN PITCH_.8 DAMAGED PITCH_.2 .G4 .G4 PITCH_9999</size><color=#d67d42>Generators in <color=#f5e042>the facility <color=#d67d42>have been <color=#d64542>damaged.<split><size=0> PITCH_.8 THE FACILITY PITCH_.9 IS GOING THROUGH PITCH_.85 A BLACK OUT PITCH_.15 .G4 .G4 PITCH_9999</size><color=#d64542><color=#f5e042>The facility <color=#d67d42>is going through a <color=#000000>blackout.";
         public EventHandlers(Plugin plugin) => this.plugin = plugin;
 
-        public void OnRoundStart()
+        internal void OnRoundStart()
         {
             if (!plugin.IsEnabled || !plugin.ForceNextRound && RNG.Next(1, config.Rarity) != 1)
                 return;
@@ -27,7 +27,7 @@ namespace Blackout
             Cassie.Message(cassieMessage, false, false, true);
         }
 
-        public void OnChangingRole(ChangingRoleEventArgs ev)
+        internal void OnChangingRole(ChangingRoleEventArgs ev)
         {
             if (!plugin.IsOccuring)
                 return;
@@ -35,12 +35,20 @@ namespace Blackout
             Timing.CallDelayed(1.0f, () => ev.Player.AddItem(ItemType.Flashlight));
         }
 
-        public void OnRoundEnd(RoundEndedEventArgs ev)
+        internal void OnRoundEnd(RoundEndedEventArgs ev)
         {
             if (!plugin.IsOccuring)
                 return;
 
             plugin.IsOccuring = false;
+        }
+        
+        internal void OnTriggeringTesla(TriggeringTeslaEventArgs ev)
+        {
+            if (!plugin.IsOccuring)
+                return;
+
+            ev.IsAllowed = false;
         }
     }
 }

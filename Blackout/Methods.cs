@@ -38,13 +38,17 @@ namespace Blackout
             {
                 Exiled.Events.Handlers.Server.RoundStarted += plugin.EventHandlers.OnRoundStart;
                 Exiled.Events.Handlers.Server.RoundEnded += plugin.EventHandlers.OnRoundEnd;
+                
                 Exiled.Events.Handlers.Player.ChangingRole += plugin.EventHandlers.OnChangingRole;
+                Exiled.Events.Handlers.Player.TriggeringTesla += plugin.EventHandlers.OnTriggeringTesla;
             }
             else
             {
                 Exiled.Events.Handlers.Server.RoundStarted -= plugin.EventHandlers.OnRoundStart;
                 Exiled.Events.Handlers.Server.RoundEnded -= plugin.EventHandlers.OnRoundEnd;
+                
                 Exiled.Events.Handlers.Player.ChangingRole -= plugin.EventHandlers.OnChangingRole;
+                Exiled.Events.Handlers.Player.TriggeringTesla -= plugin.EventHandlers.OnTriggeringTesla;
             }
         }
     }
