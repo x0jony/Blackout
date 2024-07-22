@@ -7,13 +7,12 @@ namespace Blackout
     {
         public override string Author { get; } = "x0jony";
         public override string Name { get; } = "Blackout";
-        public override Version Version { get; } = new Version(1, 0, 3);
+        public override Version Version { get; } = new Version(1, 0, 4);
         public override Version RequiredExiledVersion { get; } = new Version(8, 0, 0);
         public static Plugin Singleton;
 
         public Methods Methods;
         public EventHandlers EventHandlers;
-        public bool IsEnabled = true;
         public bool IsOccuring = false;
         public bool ForceNextRound = false;
 
@@ -30,11 +29,11 @@ namespace Blackout
         
         public override void OnDisabled()
         {
-            Methods.EventRegistration(true);
+            Methods.EventRegistration(false);
             
-            EventHandlers = null;
             Methods = null;
-            
+            EventHandlers = null;
+
             base.OnDisabled();
         }
     }

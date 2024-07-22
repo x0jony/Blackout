@@ -16,7 +16,7 @@ namespace Blackout
 
         internal void OnRoundStart()
         {
-            if (!plugin.IsEnabled || !plugin.ForceNextRound && RNG.Next(1, config.Rarity) != 1)
+            if (!plugin.ForceNextRound && RNG.Next(config.Rarity) != 0)
                 return;
             
             plugin.IsOccuring = true;
