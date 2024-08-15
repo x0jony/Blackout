@@ -9,8 +9,9 @@ namespace Blackout
         public override string Name { get; } = "Blackout";
         public override Version Version { get; } = new Version(1, 0, 4);
         public override Version RequiredExiledVersion { get; } = new Version(8, 0, 0);
-        public static Plugin Singleton;
-
+        
+        
+        public static Plugin Instance;
         public Methods Methods;
         public EventHandlers EventHandlers;
         public bool IsOccuring = false;
@@ -18,7 +19,7 @@ namespace Blackout
 
         public override void OnEnabled()
         {
-            Singleton = this;
+            Instance = this;
             Methods = new Methods(this);
             EventHandlers = new EventHandlers(this);
             

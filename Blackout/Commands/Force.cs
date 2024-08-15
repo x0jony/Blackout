@@ -10,7 +10,7 @@ namespace Blackout.Commands
         {
             if (sender.CheckPermission("blackout.force"))
             {
-                Plugin.Singleton.ForceNextRound = true;
+                Plugin.Instance.ForceNextRound = true;
                 response = "Successfully forcing the blackout to occur next round.";
                 return true;
             }

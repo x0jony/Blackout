@@ -33,38 +33,38 @@
     </PropertyGroup>
     <ItemGroup>
         <Reference Include="Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
-          <HintPath>C:\Windows\System32\Assembly-CSharp.dll</HintPath>
+          <HintPath>$(EXILED_REFERENCES)\Master\Assembly-CSharp.dll</HintPath>
         </Reference>
         <Reference Include="Assembly-CSharp-firstpass, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
-          <HintPath>C:\Windows\System32\Assembly-CSharp-firstpass.dll</HintPath>
+          <HintPath>$(EXILED_REFERENCES)\Master\Assembly-CSharp-firstpass.dll</HintPath>
         </Reference>
         <Reference Include="CommandSystem.Core, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
-          <HintPath>C:\Windows\System32\CommandSystem.Core.dll</HintPath>
+          <HintPath>$(EXILED_REFERENCES)\Master\CommandSystem.Core.dll</HintPath>
         </Reference>
         <Reference Include="Exiled.API, Version=8.9.6.0, Culture=neutral, PublicKeyToken=null">
-          <HintPath>C:\Windows\System32\Exiled.API.dll</HintPath>
+          <HintPath>$(EXILED_REFERENCES)\EXILED\Plugins\dependencies\Exiled.API.dll</HintPath>
         </Reference>
         <Reference Include="Exiled.Events, Version=8.9.6.0, Culture=neutral, PublicKeyToken=null">
-          <HintPath>C:\Windows\System32\Exiled.Events.dll</HintPath>
+          <HintPath>$(EXILED_REFERENCES)\EXILED\Plugins\Exiled.Events.dll</HintPath>
         </Reference>
         <Reference Include="Exiled.Permissions, Version=8.9.6.0, Culture=neutral, PublicKeyToken=null">
-          <HintPath>C:\Windows\System32\Exiled.Permissions.dll</HintPath>
+          <HintPath>$(EXILED_REFERENCES)\EXILED\Plugins\Exiled.Permissions.dll</HintPath>
         </Reference>
         <Reference Include="Mirror, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
-          <HintPath>C:\Windows\System32\Mirror.dll</HintPath>
+          <HintPath>$(EXILED_REFERENCES)\Master\Mirror.dll</HintPath>
         </Reference>
         <Reference Include="System" />
         <Reference Include="System.Core" />
         <Reference Include="System.Data" />
         <Reference Include="System.Xml" />
         <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
-          <HintPath>C:\Windows\System32\UnityEngine.dll</HintPath>
+          <HintPath>$(EXILED_REFERENCES)\Master\UnityEngine.dll</HintPath>
         </Reference>
         <Reference Include="UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
-          <HintPath>C:\Windows\System32\UnityEngine.CoreModule.dll</HintPath>
+          <HintPath>$(EXILED_REFERENCES)\Master\UnityEngine.CoreModule.dll</HintPath>
         </Reference>
         <Reference Include="YamlDotNet, Version=11.0.0.0, Culture=neutral, PublicKeyToken=ec19458f3c15af5e">
-          <HintPath>C:\Windows\System32\YamlDotNet.dll</HintPath>
+          <HintPath>$(EXILED_REFERENCES)\Master\YamlDotNet.dll</HintPath>
         </Reference>
     </ItemGroup>
     <ItemGroup>
@@ -75,6 +75,7 @@
         <Compile Include="Methods.cs" />
         <Compile Include="Plugin.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
+        <Compile Include="SeriouslyRandom.cs" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

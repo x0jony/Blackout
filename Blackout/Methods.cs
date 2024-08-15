@@ -7,11 +7,17 @@ namespace Blackout
     public class Methods
     {
         private readonly Plugin plugin;
+        private Config config = Plugin.Instance.Config;
         public Methods(Plugin plugin) => this.plugin = plugin;
 
         public void Give()
         {
-            Timing.CallDelayed(1.5f, () => GiveFlashlight());
+            Timing.CallDelayed(1.5f, () =>
+            {
+                if (config.Item == "flashlight") { GiveFlashlight(); }
+                else if (config.Item == "lantern") { GiveLantern(); }
+                else { GiveFlashlight(); GiveLantern(); }
+            });
         }
         
         void GiveFlashlight()
@@ -31,6 +37,24 @@ namespace Blackout
                     player.AddItem(ItemType.Flashlight);
             }
         }
+        
+        void GiveLantern()
+        {
+            foreach (Player player in Player.List)
+            {
+                bool hasLantern = false;
+                foreach (Item item in player.Items)
+                {
+                    if (item.Type == ItemType.Lantern)
+                    {
+                        hasLantern = true;
+                        break;
+                    }
+                }
+                if (!hasLantern)
+                    player.AddItem(ItemType.Lantern);
+            }
+        }
 
         internal void EventRegistration(bool enabled = true)
         {
@@ -41,6 +65,8 @@ namespace Blackout
                 
                 Exiled.Events.Handlers.Player.ChangingRole += plugin.EventHandlers.OnChangingRole;
                 Exiled.Events.Handlers.Player.TriggeringTesla += plugin.EventHandlers.OnTriggeringTesla;
+                
+                Exiled.Events.Handlers.Map.GeneratorActivating += plugin.EventHandlers.OnGeneratorActivating;
             }
             else
             {
@@ -49,6 +75,8 @@ namespace Blackout
                 
                 Exiled.Events.Handlers.Player.ChangingRole -= plugin.EventHandlers.OnChangingRole;
                 Exiled.Events.Handlers.Player.TriggeringTesla -= plugin.EventHandlers.OnTriggeringTesla;
+                
+                Exiled.Events.Handlers.Map.GeneratorActivating -= plugin.EventHandlers.OnGeneratorActivating;
             }
         }
     }

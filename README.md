@@ -1,7 +1,7 @@
 ![Total downloads](https://img.shields.io/github/downloads/x0jony/Blackout/total)
 
 # Blackout
-Blackout is an EXILED plugin for SCP: Secret Laboratory which disables all facility lights and provides every player with a flashlight if they don't have one at the start of the round, based on a probability.
+Blackout is an EXILED plugin for SCP: Secret Laboratory which disables all facility lights and provides every player with a flashlight if they don't have one at the start of the round, based on a probability. The players have to activate all 3 generators to turn the lights back on.
 
 ## Features
 - Starts at the start of the round based on a probability.
@@ -12,6 +12,7 @@ Blackout is an EXILED plugin for SCP: Secret Laboratory which disables all facil
   - Provides all players with a flashlight if they don't have one.
   - Announces the blackout with a cool C.A.S.S.I.E message.
   - Disables all tesla gates.
+- Ends the blackout if all 3 generators are engaged.
 
 ## Installation
 1. Download the [latest release](https://github.com/x0jony/Blackout/releases/latest) of the plugin from the GitHub repository.
@@ -30,6 +31,8 @@ blackout:
   debug: false
   # Probability of the blackout occuring. (1 out of X)
   rarity: 3
+  # Which item to give to all players during the blackout. (flashlight, lantern, both)
+  item: 'both'
 ```
 
 ## Credits
