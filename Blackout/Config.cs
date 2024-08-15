@@ -12,9 +12,9 @@ namespace Blackout
         public bool Debug { get; set; } = false;
 
         [Description("Probability of the blackout occuring. (1 out of X)")]
-        public int Rarity { get; } = 3;
+        public int Rarity { get; set; } = 3;
 
         [Description("Which item to give to all players during the blackout. (flashlight, lantern, both)")]
-        public string Item { get; } = "both";
+        public string Item { get; set; } = "both";
     }
 }
