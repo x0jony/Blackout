@@ -54,7 +54,10 @@ namespace Blackout
 
         internal void OnGeneratorActivating(GeneratorActivatingEventArgs ev)
         {
-            if (Generator.Get(GeneratorState.Engaged).Count() == 3)
+            if (!plugin.IsOccuring)
+                return;
+            
+            if (Generator.Get(GeneratorState.Engaged).Count() == 2)
             {
                 plugin.IsOccuring = false;
                 Map.TurnOffAllLights(float.MinValue);
